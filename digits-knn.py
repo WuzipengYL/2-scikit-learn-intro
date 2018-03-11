@@ -12,10 +12,17 @@ y_digits = digits.target
 n_samples = len(X_digits)
 
 ## 拆分训练集和测试集
-X_train = X_digits[:.9 * n_samples]
-y_train = y_digits[:.9 * n_samples]
-X_test = X_digits[.9 * n_samples:]
-y_test = y_digits[.9 * n_samples:]
+#X_train = X_digits[:.9 * n_samples]
+#y_train = y_digits[:.9 * n_samples]
+#X_test = X_digits[.9 * n_samples:]
+#y_test = y_digits[.9 * n_samples:]
+
+
+#上面的代码错了，切片只允许整数，所以正确的代码应该是
+X_train = X_digits[:int(.9*1797)]
+y_train = y_digits[:int(.9 * n_samples)]
+X_test = X_digits[int(.9 * n_samples):]
+y_test = y_digits[int(.9 * n_samples):]
 
 model = KNeighborsClassifier()
 
